@@ -1,0 +1,14 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "pro.m2g.opstether/opstether",
+  "title": "OpsTether — Linux Server Management",
+  "description": "Linux server administration over OAuth MCP: shell, Docker, systemd, files and monitoring.",
+  "version": "0.4.5",
+  "websiteUrl": "https://opstether.m2g.pro/",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://opstether.m2g.pro/mcp"
+    }
+  ]
+}
