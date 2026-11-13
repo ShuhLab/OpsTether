@@ -7,6 +7,7 @@ Connect ChatGPT to your Linux servers through the **Model Context Protocol (MCP)
 [Website](https://opstether.m2g.pro/) · [Dashboard](https://opstether.m2g.pro/dashboard) · [Getting started](docs/GETTING_STARTED.md) · [Service docs](https://opstether.m2g.pro/docs) · [Telegram support](https://t.me/OpsTetherBot?start=support)
 
 [![Listed on mcpservers.org](https://mcpservers.org/badge.svg)](https://mcpservers.org/servers/shuhlab/opstether)
+[![M8ven Score](https://m8ven.ai/badge/mcp/shuhlab-opstether-18xxo5?v=4e97e20bd711cd1e4d06564a63f94536)](https://m8ven.ai/mcp/shuhlab-opstether-18xxo5?s=readme)
 
 This repository is the public documentation showcase for a **proprietary hosted service**. Backend and agent/client source code are not distributed here. See [Proprietary notice](PROPRIETARY_NOTICE.md).
 
