@@ -2,6 +2,19 @@
 
 **Status:** preparation only. Do not schedule or publish before verifying the maker account and checking production signup. No paid promotion.
 
+## Submission attempt — 2026-11-15
+
+**Status: blocked in Product Hunt submission wizard, not published; no verified saved draft.** Browser Core attached to the owner's already-signed-in local Chrome tab. Product Hunt accepted https://opstether.m2g.pro/ and reported "This looks like a new product" (no suggested existing listing). Name **OpsTether**, tagline and description were entered, and **New product** selected. The **Continue** button remained disabled by the page (CSS `:disabled` confirmed), without a visible validation error, even with a shorter description; no attempts were made to bypass it.
+
+The signed-in profile displays the name **Shuh Lab** and no bio. Product Hunt states that company/brand profiles cannot post, new personal accounts require at least one week, and email verification is required. It is **not confirmed which condition disabled this particular form**. The owner must use a genuinely personal profile with an accurate name and verified email, and check eligibility before proceeding. Do not invent or change the owner's personal identity.
+
+Resume only after checking account eligibility. Re-enter form fields from below if the wizard did not autosave. **Create Draft**, not **Schedule Launch**. No paid services.
+
+Sources:
+- https://help.producthunt.com/en/articles/481909-how-can-i-get-access-to-post
+- https://help.producthunt.com/en/articles/771527-personal-account-vs-company-account
+- https://help.producthunt.com/en/articles/17834537-4-build-your-product-page
+
 ## Product details
 
 **Name:** OpsTether
