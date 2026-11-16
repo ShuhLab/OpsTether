@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "opstether": {
+      "type": "http",
+      "url": "https://opstether.m2g.pro/mcp"
+    }
+  }
+}
