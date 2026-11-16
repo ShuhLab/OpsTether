@@ -43,6 +43,18 @@ OpsTether now publishes a **free Agent Skill for Claude Code** with safe Linux d
 - **Status:** free skill and Claude Code plugin published; Claude-specific public OAuth client registered and server-side PKCE/token flow tested (2026-11-16). Interactive login through Claude apps is **not yet independently verified**. Do not treat this as guaranteed connector support on every Claude plan or client.
 - The free ZIP is ready for Agensi. Its marketplace publication is not confirmed until submission and review are completed.
 
+### Install the free skill with Skills CLI
+
+`skills.sh` / Vercel's open skills installer discovers the public `opstether-linux-ops` skill. The install path has been verified in a clean Claude Code project:
+
+```sh
+npx skills add ShuhLab/OpsTether --skill opstether-linux-ops --agent claude-code --yes
+```
+
+Installing a skill does **not** connect the hosted MCP server. Sign into OpsTether separately through OAuth as explained in the [Claude setup guide](docs/CLAUDE.md). The installer can also discover the independent `opstether-linux-operations` entry; select `--skill opstether-linux-ops` for this package.
+
+**Agensi:** [Free listing submission metadata](docs/AGENSI_LISTING.md). The ZIP is ready for review; a live Agensi listing has **not yet been confirmed**.
+
 ## Connect ChatGPT
 
 1. Open the [dashboard](https://opstether.m2g.pro/dashboard) and sign in or create an account.
