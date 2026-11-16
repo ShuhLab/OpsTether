@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "opstether": {
+      "type": "http",
+      "url": "https://opstether.m2g.pro/mcp",
+      "oauth": {
+        "clientId": "opstether-claude-code",
+        "callbackPort": 8765,
+        "scopes": "openid profile email opstether:admin"
+      }
+    }
+  }
+}
