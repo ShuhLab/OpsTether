@@ -4,6 +4,5 @@
       "type": "http",
       "url": "https://opstether.m2g.pro/mcp"
     }
-  },
-  "_note": "Endpoint-only example. OpsTether requires a separate OAuth sign-in and a client-specific registered redirect. For Claude Code use the documented --client-id and --callback-port flags. Do not paste credentials into this file."
+  }
 }
