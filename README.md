@@ -30,6 +30,16 @@ OAuth connects your AI client to your OpsTether account. Server access is scoped
 
 A free [OpsTether Linux Operations skill](skills/opstether-linux-operations/SKILL.md) describes safe server selection, health checks and approval before changes. It is a **text-only companion**, not a replacement for the separately hosted OpsTether MCP server. Users must configure OAuth and pair their own authorized Linux server. The Agensi marketplace ZIP includes additional setup and operational-playbook files.
 
+## Claude Code / Claude companion skill
+
+OpsTether now publishes a **free Agent Skill for Claude Code** with safe Linux diagnostics, server selection, systemd, Docker and persistent terminal workflows.
+
+- [Get the free ZIP](https://opstether.m2g.pro/downloads/opstether-linux-ops-1.0.0.zip) or [view SKILL.md](skills/opstether-linux-ops/SKILL.md).
+- [Claude Code and Claude connection guide](docs/CLAUDE.md).
+- The skill runs instructions in the AI client; it **does not host the MCP server or grant an OpsTether account**. The user must connect the separate OpsTether service with OAuth.
+- **Status:** skill format and package published; Claude-specific OAuth callback registration and end-to-end login **not yet independently confirmed**. Do not treat this as guaranteed connector support on every Claude plan or client.
+- A separate **free skill listing** is intended for Agensi. Marketplace publication is not confirmed until its submission is accepted.
+
 ## Connect ChatGPT
 
 1. Open the [dashboard](https://opstether.m2g.pro/dashboard) and sign in or create an account.
