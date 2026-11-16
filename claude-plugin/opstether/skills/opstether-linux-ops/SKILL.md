@@ -1,5 +1,7 @@
 ---
 name: opstether-linux-ops
+version: 1.1.0
+tags: [linux, devops, claude, mcp, server-administration]
 description: Diagnose and administer Linux servers through a separately connected, OAuth-authenticated OpsTether MCP service. Use for server inventory, uptime, CPU, disk, logs, systemd, Docker, files and persistent terminal workflows on servers that the user owns or is authorized to manage.
 ---
 
@@ -9,7 +11,7 @@ This is a **free companion skill**, not an MCP server and not a substitute for O
 
 **Remote MCP URL:** `https://opstether.m2g.pro/mcp`
 
-The skill works only after the AI client exposes authenticated OpsTether tools. Client-specific OAuth setup may need a separately registered public client. Do not pretend the tools are connected, and do not infer Claude compatibility from installing this text alone.
+The skill works only after the AI client exposes authenticated OpsTether tools. Claude.ai and Claude Code have distinct pre-registered OAuth clients with PKCE S256 and exact callbacks. A user must still complete interactive login in their own Claude account. Do not pretend tools are connected merely because the skill is installed.
 
 ## Use this workflow
 
@@ -35,9 +37,11 @@ The Linux agent may have root privileges. Restrict operations to machines the us
 ## Setup and examples
 
 - `references/connect.md`: separate MCP connection, Claude Code, Claude custom connector, ChatGPT, OAuth caveats.
+- `references/claude.md`: dedicated Claude.ai and Claude Code setup, client IDs, and compatibility limits.
 - `references/examples.md`: realistic task patterns (no fictitious test results).
 - `references/security.md`: production-change checklist and boundaries.
 - `mcp-config.example.json`: endpoint-only sample, not a complete OAuth login.
+- `mcp-config.claude-code.json`: preconfigured public Claude Code OAuth metadata (no secrets).
 
 Support: https://opstether.m2g.pro/support
 Docs: https://opstether.m2g.pro/docs
