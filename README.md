@@ -26,6 +26,10 @@ This repository is the public documentation showcase for a **proprietary hosted 
 
 OAuth connects your AI client to your OpsTether account. Server access is scoped to the authenticated organization. Use the same account in the dashboard and your AI client to access your paired servers.
 
+## Free companion skill for AI agents
+
+A free [OpsTether Linux Operations skill](skills/opstether-linux-operations/SKILL.md) describes safe server selection, health checks and approval before changes. It is a **text-only companion**, not a replacement for the separately hosted OpsTether MCP server. Users must configure OAuth and pair their own authorized Linux server. The Agensi marketplace ZIP includes additional setup and operational-playbook files.
+
 ## Connect ChatGPT
 
 1. Open the [dashboard](https://opstether.m2g.pro/dashboard) and sign in or create an account.
