@@ -1,6 +1,6 @@
 {
   "name": "opstether",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Free Linux server operations workflow for OpsTether remote MCP. Requires separate OAuth connection to the hosted service.",
   "author": {
     "name": "Shuh Lab"
