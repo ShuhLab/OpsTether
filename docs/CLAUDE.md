@@ -1,39 +1,69 @@
-# OpsTether with Claude Code and Claude
+# OpsTether for Claude.ai, Claude Desktop, Cowork and Claude Code
 
-OpsTether's **free, Claude Code-compatible Agent Skill** is available now:
+**OpsTether now has separate, registered public OAuth clients for Claude.ai and Claude Code (16 November 2026).** Exact callbacks and PKCE S256 were checked against the Keycloak authorization endpoint. Interactive sign-in and MCP tool execution **inside a Claude account have not yet been verified**; please report incompatibilities rather than relying on unsupported claims.
 
-- [Skill source](../skills/opstether-linux-ops/SKILL.md)
-- [Download the Agent Skill ZIP](https://opstether.m2g.pro/downloads/opstether-linux-ops-1.0.0.zip)
-- [Hosted OpsTether service](https://opstether.m2g.pro/)
-- [Service dashboard](https://opstether.m2g.pro/dashboard)
-- [MCP endpoint](https://opstether.m2g.pro/mcp)
+OpsTether is a **separate hosted Linux administration MCP service**, not hosted by Anthropic or Agensi. A free Agent Skill provides instructions but does not create an account, grant Linux server access, or replace OAuth.
 
-**Important separation:** the downloadable skill instructs Claude how to operate OpsTether tools. It does not install or host the MCP server, grant access to any Linux device, or authenticate Claude by itself. A separately connected OpsTether account and an OAuth-capable client are required.
+- Website: https://opstether.m2g.pro/
+- Dashboard/account: https://opstether.m2g.pro/dashboard
+- Remote MCP: `https://opstether.m2g.pro/mcp`
+- Free Agent Skill: [SKILL.md](../skills/opstether-linux-ops/SKILL.md)
+- Download: [OpsTether Linux Ops skill ZIP v1.1.0](https://opstether.m2g.pro/downloads/opstether-linux-ops-1.1.0.zip)
+- Full skill connection guide: [references/connect.md](../skills/opstether-linux-ops/references/connect.md)
 
-## Claude Code
+## 1. Pair the user's Linux server
 
-Install the skill into `~/.claude/skills/opstether-linux-ops/SKILL.md` (user scope), or `.claude/skills/opstether-linux-ops/SKILL.md` under a trusted project. Copy its `references/` files with it.
+Create or sign in to your account on the OpsTether dashboard. Choose **Connect server**, review the generated installer and warning that this Linux agent may run as root, and pair a Linux server you own or have permission to administer. Never publish pairing credentials.
 
-The documented remote MCP command, **after the required public OAuth client and callback are registered** with OpsTether, is:
+## 2a. Claude.ai / Claude Desktop / Cowork custom connector
 
-```sh
-claude mcp add --transport http --scope user --client-id opstether-claude --callback-port 8765 opstether https://opstether.m2g.pro/mcp
-claude mcp login opstether
+In Claude, open **Customize → Connectors → Add custom connector**. Enter:
+
+| Field | Value |
+| --- | --- |
+| Name | OpsTether |
+| Remote MCP URL | `https://opstether.m2g.pro/mcp` |
+| Authentication | OAuth sign-in |
+| OAuth client choice | **Use your own OAuth client** |
+| Public client ID | `opstether-claude` |
+| Client secret | **None; leave blank** |
+| Registered redirect | `https://claude.ai/api/mcp/auth_callback` |
+| Scopes, if requested | `openid profile email opstether:admin` |
+
+This client is specifically registered with the exact Claude web callback; open Dynamic Client Registration (DCR) stays disabled for security. Authenticate in the hosted OpsTether Keycloak login page and enable the connector. Availability and controls depend on your Claude account/workspace. **No end-to-end Claude account sign-in has been verified yet.**
+
+Official reference: [Anthropic custom connectors](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp).
+
+## 2b. Claude Code CLI
+
+Use a recent Claude Code version (upgrade if necessary). A separate public client `opstether-claude-code` is pre-registered for **exactly** `http://localhost:8765/callback`. The local port must be available when authenticating.
+
+```bash
+claude mcp add-json opstether \
+  '{"type":"http","url":"https://opstether.m2g.pro/mcp","oauth":{"clientId":"opstether-claude-code","callbackPort":8765,"scopes":"openid profile email opstether:admin"}}' \
+  --scope user
 claude mcp get opstether
+claude mcp login opstether
 ```
 
-The intended callbacks are exact: `http://localhost:8765/callback` and `http://127.0.0.1:8765/callback`. OpsTether disables open Dynamic Client Registration. **The Claude-specific OAuth login is not yet confirmed in production; do not describe this CLI route as tested or plug-and-play.** If an `invalid_client` or redirect error appears, request client registration via [support](https://opstether.m2g.pro/support), providing the client name and exact callback; never send credentials.
+The JSON `oauth.scopes` field ensures that `opstether:admin` is explicitly requested. The SDK detects the authorization server through OAuth discovery. Do not use `opstether-claude` (web-only callback) in Claude Code, and do not replace `localhost` with another callback without registration. Claude Code versions affected by the `127.0.0.1` callback bug should be upgraded to v2.1.231 or newer.
 
-## Claude (claude.ai / Desktop / Cowork)
+Official reference: [Claude Code MCP](https://code.claude.com/docs/en/mcp).
 
-In Claude, open **Customize → Connectors → Add custom connector** and enter the remote OpsTether MCP URL. Claude supports manually provided OAuth clients where the provider requires one. The intended OpsTether public client is `opstether-claude`, using `https://claude.ai/api/mcp/auth_callback`, **once this client is registered by OpsTether**. Do not claim this route is fully available before a successful authorization test.
+## 3. Install the optional free skill
 
-## Install the Linux agent
+For Claude Code, unzip the free Agent Skill ZIP into `~/.claude/skills/opstether-linux-ops/` (all local projects) or `.claude/skills/opstether-linux-ops/` (a trusted project). The folder must contain `SKILL.md`. A project-scoped copy is also provided at [`.claude/skills/opstether-linux-ops/SKILL.md`](../.claude/skills/opstether-linux-ops/SKILL.md).
 
-Independently, create an OpsTether account via the [dashboard](https://opstether.m2g.pro/dashboard). Pair an outbound agent on a Linux host you own or administer with permission, after reading the root-access warning. Test `devices_list` and read-only `system_status` before executing any changes.
+The skill does **not** configure MCP automatically; the connector step above remains required. It guides safe server selection, inspections, bounded logs, Docker/systemd diagnosis and user-approved changes.
 
-**Security:** the Linux agent can have root access. Review commands and changes, keep OAuth codes and device credentials private, and confirm the exact target server.
+Official reference: [Claude Code Skills](https://code.claude.com/docs/en/skills).
 
-Docs: [Getting started](GETTING_STARTED.md) · [Security](../SECURITY.md) · [Privacy](https://opstether.m2g.pro/privacy).
+## 4. Verify and operate safely
 
-Official references: [Claude MCP integration](https://code.claude.com/docs/en/mcp), [Claude custom remote connectors](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp).
+After OAuth, ask Claude to list your connected Linux servers. Verify the intended server appears and perform a read-only health request first. Root actions (shell commands, service restarts, package changes, file writes or firewall changes) can be disruptive: confirm exact target and request explicit approval.
+
+If authorization is rejected, check the correct client ID and registered exact callback, and send the client type and redacted error to [OpsTether support](https://opstether.m2g.pro/support). Never share OAuth tokens, login passwords or installation codes.
+
+### Other MCP clients
+
+ChatGPT uses its separate `opstether-chatgpt` OAuth client. Cursor, Copilot and others may require separately registered exact callbacks. **MCP compatibility alone is not proof of successful OAuth integration.** See [the general getting-started guide](GETTING_STARTED.md).
