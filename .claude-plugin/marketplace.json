@@ -1,0 +1,14 @@
+{
+  "name": "shuhlab-ops",
+  "description": "Free Shuh Lab MCP companion skills for Claude Code",
+  "owner": {
+    "name": "Shuh Lab"
+  },
+  "plugins": [
+    {
+      "name": "opstether",
+      "source": "./claude-plugin/opstether",
+      "description": "OpsTether Linux operations skill. Hosted MCP must be connected separately via OAuth."
+    }
+  ]
+}
