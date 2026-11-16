@@ -32,13 +32,16 @@ A free [OpsTether Linux Operations skill](skills/opstether-linux-operations/SKIL
 
 ## Claude Code / Claude companion skill
 
+Claude Code plugin catalog: `claude plugin marketplace add ShuhLab/OpsTether`, then `claude plugin install opstether@shuhlab-ops`. Plugin manifest and marketplace validation both pass in Claude Code.
+
+
 OpsTether now publishes a **free Agent Skill for Claude Code** with safe Linux diagnostics, server selection, systemd, Docker and persistent terminal workflows.
 
-- [Get the free ZIP](https://opstether.m2g.pro/downloads/opstether-linux-ops-1.0.0.zip) or [view SKILL.md](skills/opstether-linux-ops/SKILL.md).
+- [Get the free ZIP](https://opstether.m2g.pro/downloads/opstether-linux-ops-1.0.1.zip) or [view SKILL.md](skills/opstether-linux-ops/SKILL.md).
 - [Claude Code and Claude connection guide](docs/CLAUDE.md).
 - The skill runs instructions in the AI client; it **does not host the MCP server or grant an OpsTether account**. The user must connect the separate OpsTether service with OAuth.
-- **Status:** skill format and package published; Claude-specific OAuth callback registration and end-to-end login **not yet independently confirmed**. Do not treat this as guaranteed connector support on every Claude plan or client.
-- A separate **free skill listing** is intended for Agensi. Marketplace publication is not confirmed until its submission is accepted.
+- **Status:** free skill and Claude Code plugin published; Claude-specific public OAuth client registered and server-side PKCE/token flow tested (2026-11-16). Interactive login through Claude apps is **not yet independently verified**. Do not treat this as guaranteed connector support on every Claude plan or client.
+- The free ZIP is ready for Agensi. Its marketplace publication is not confirmed until submission and review are completed.
 
 ## Connect ChatGPT
 
