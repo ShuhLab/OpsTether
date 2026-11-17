@@ -43,19 +43,25 @@ OpsTether Linux Server Operations is a **free AI Agent Skill** that teaches Clau
 
 [Quickstart](https://github.com/ShuhLab/OpsTether/blob/main/docs/CLAUDE.md) · [Security](https://opstether.m2g.pro/security) · [Support](https://opstether.m2g.pro/support)
 
-## See it in action (illustrative walkthrough, not a fabricated live server log)
+## See it in action — read-only real MCP test (17 November 2026)
 
-**User request:** "My nginx service is failing on my Linux host. Tell me why, show me the last 50 logs, and propose the smallest safe fix. Don't change anything until I approve."
+**Actual test request:** "List the Linux servers connected to my OpsTether account. On the selected server, show the system's uptime and free memory, and check whether the OpsTether control systemd service is running. Do not change anything."
 
-**Expected agent workflow:**
+The test was run against an OpsTether account with **one authorized online Linux device**. Host-identifying details and internal quota metadata are omitted from this public demonstration. No simulated values or fabricated commands are presented.
 
-1. The agent checks whether authenticated OpsTether MCP tools are available. If they are absent, it explains how to connect the separate OpsTether service. It never claims a connection simply because the SKILL.md file was installed.
-2. It calls `devices_list` to discover the Linux devices authorized to the account. If there are multiple devices, it identifies the intended server and asks which one to inspect.
-3. It retrieves `system_status` and the nginx `service_status` and `service_logs` from that server. It limits the log output and avoids copying secrets.
-4. It summarizes the observed nginx status and recent errors, separates verified evidence from possible causes, and suggests one bounded remedy. It **does not** restart nginx or edit configuration merely because a log message suggests doing so.
-5. If the user approves the specific change, the agent uses the relevant authorized OpsTether operation, then checks the new service status and reports success or unresolved issues. If the operation fails, it reports the failure and considers rollback.
+**Actual tool sequence and evidence:**
 
-**Illustration only:** This walkthrough describes skill behavior, not a claim that a real nginx server was modified or a live success metric was measured.
+1. `devices_list`: returned **1 connected device**, marked **online**.
+2. `system_status` on the selected device: architecture `amd64`, operating system `linux`, uptime **159,020 seconds** (approximately **44 hours 10 minutes**), total memory **16,764,948,480 bytes** (about 15.61 GiB), free memory **14,348,496,896 bytes** (about 13.36 GiB).
+3. `service_status` for the selected OpsTether control service: `active_state=active`, `sub_state=running`.
+
+**Full user-facing result, with hostname omitted for publication:**
+
+> I found one authorized Linux server in your OpsTether account, and its connection is currently online. The selected server is running Linux on amd64 with approximately 44 hours of uptime. Total RAM is about 15.61 GiB, of which about 13.36 GiB is currently reported free. The requested OpsTether control service is active and running according to systemd.
+>
+> **No changes were made.** These checks confirm the device is reachable and this systemd service is running at the time of inspection. They do not establish disk health, application-level response times, past failures or how the service will behave later. If further investigation is needed, I can read a bounded number of service log lines or perform a separate health check, after confirming the intended target.
+
+**What this demonstrates:** real MCP discovery, resource inspection and service diagnosis without a restart or shell mutation. A SKILL.md guides the workflow, but its installation does not grant access; users must separately connect their own authorized server to the hosted OpsTether service with OAuth.
 
 ## Submission checklist
 
