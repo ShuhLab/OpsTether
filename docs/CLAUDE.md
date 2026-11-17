@@ -11,6 +11,10 @@ OpsTether is a **separate hosted Linux administration MCP service**, not hosted 
 - Download: [OpsTether Linux Ops skill ZIP v1.1.0](https://opstether.m2g.pro/downloads/opstether-linux-ops-1.1.0.zip)
 - Full skill connection guide: [references/connect.md](../skills/opstether-linux-ops/references/connect.md)
 
+## Claude Plugins: skill installation verified (17 November 2026)
+
+The Shuh Lab GitHub marketplace was added successfully through **Claude → Plugins → Add → Add marketplace → Add from a repository**, using `ShuhLab/OpsTether`. Claude displayed the **Opstether** plugin, version **1.1.0**, and confirmed **“Opstether is added and ready to use.”** This verification applies to the text-only `opstether-linux-ops` skill. The plugin correctly shows **“This plugin doesn’t include any connectors”**: installing it does **not** create the separate OAuth MCP connection, and it does not grant Linux server access. The tested Claude account did not offer an enabled **Add custom connector** action; end-to-end Claude MCP authentication therefore remains unverified in that account.
+
 ## 1. Pair the user's Linux server
 
 Create or sign in to your account on the OpsTether dashboard. Choose **Connect server**, review the generated installer and warning that this Linux agent may run as root, and pair a Linux server you own or have permission to administer. Never publish pairing credentials.
