@@ -1,8 +1,8 @@
 # Agensi listing — OpsTether Linux Operations (free)
 
 > Publication checklist / source copy. **This is not proof that Agensi approved a listing.**
-> Current ZIP: https://opstether.m2g.pro/downloads/opstether-linux-ops-1.1.0.zip
-> Version: 1.1.0 · Format: one SKILL.md plus six text-only support files · Price: **Free**
+> Current ZIP: https://opstether.m2g.pro/downloads/opstether-linux-ops-agensi-1.1.0.zip
+> Version: 1.1.0 · Agensi ZIP layout: one top-level `opstether-linux-ops/` folder containing one SKILL.md plus six text-only support files · Price: **Free**
 
 ## Listing fields
 
@@ -21,7 +21,9 @@ A free Claude Code and MCP companion skill for inspecting and operating authoriz
 
 **Logo:** https://raw.githubusercontent.com/ShuhLab/OpsTether/main/assets/opstether-icon.png (square 1024×1024 PNG).
 
-**Download:** https://opstether.m2g.pro/downloads/opstether-linux-ops-1.1.0.zip
+**Agensi upload ZIP:** https://opstether.m2g.pro/downloads/opstether-linux-ops-agensi-1.1.0.zip
+
+**Standalone Claude ZIP (root-level SKILL.md):** https://opstether.m2g.pro/downloads/opstether-linux-ops-1.1.0.zip
 
 **Source:** https://github.com/ShuhLab/OpsTether/tree/main/skills/opstether-linux-ops
 
