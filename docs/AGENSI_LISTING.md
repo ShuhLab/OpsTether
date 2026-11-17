@@ -1,6 +1,6 @@
 # Agensi listing — OpsTether Linux Operations (free)
 
-> Publication checklist / source copy. **This is not proof that Agensi approved a listing.**
+> Agensi submission confirmed 17 November 2026; status **Pending Review**, not approved or publicly live. No final safety-scan result was displayed at submission.
 > Current ZIP: https://opstether.m2g.pro/downloads/opstether-linux-ops-agensi-1.1.0.zip
 > Version: 1.1.0 · Agensi ZIP layout: one top-level `opstether-linux-ops/` folder containing one SKILL.md plus six text-only support files · Price: **Free**
 
@@ -72,11 +72,12 @@ The test was run against an OpsTether account with **one authorized online Linux
 - [x] No credentials, tokens or executable installers in ZIP
 - [x] Free listing / external MCP dependency disclosed
 - [x] Claude Code plugin and server-side OAuth flows verified
-- [ ] Agensi creator account authorized in browser
-- [ ] ZIP and logo uploaded to Agensi Creator Studio
+- [x] Agensi Creator Mode active and Shuh Lab profile saved
+- [x] ZIP uploaded; Agensi confirmed `SKILL.md found at SKILL.md` and populated 3 fields
+- [ ] Logo upload status not independently verified in listing detail
 - [ ] Pricing = Free; needs-access-to = OpsTether MCP
-- [ ] Submission confirmed and under review
-- [ ] Agensi listing publicly approved
+- [x] 17 Nov 2026: submitted successfully; Agensi dashboard shows `1 Pending`, `0 Live`, status `Pending Review / In review`
+- [ ] Agensi listing publicly approved (awaiting review)
 
 **Submission page:** https://www.agensi.io/dashboard/submit
 
