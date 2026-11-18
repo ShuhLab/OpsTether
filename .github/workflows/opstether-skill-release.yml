@@ -1,0 +1,56 @@
+name: OpsTether skill auto-release
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'skills/opstether-linux-ops/**'
+      - 'tools/release_opstether_skill.py'
+  pull_request:
+    paths:
+      - 'skills/opstether-linux-ops/**'
+      - 'tools/release_opstether_skill.py'
+      - 'claude-plugin/opstether/**'
+      - '.claude-plugin/marketplace.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: opstether-skill-release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  validate-and-package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+      - name: Validate, version and synchronize canonical skill
+        run: |
+          python3 tools/release_opstether_skill.py --release --output dist
+          python3 tools/release_opstether_skill.py --check
+          python3 -m compileall -q tools/release_opstether_skill.py
+      - name: Commit release versions and mirrors
+        if: github.event_name != 'pull_request'
+        run: |
+          git add skills/opstether-linux-ops/ claude-plugin/opstether/skills/opstether-linux-ops/ \
+            claude-plugin/opstether/.claude-plugin/plugin.json .claude/skills/opstether-linux-ops/
+          if git diff --cached --quiet; then
+            echo "No version or mirror changes needed."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "release(skill): sync and version OpsTether plugin [skip ci]"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
+      - name: Upload checked release ZIPs
+        uses: actions/upload-artifact@v4
+        with:
+          name: opstether-skill-release-${{ github.run_id }}
+          path: dist/
+          retention-days: 30
