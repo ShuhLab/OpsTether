@@ -18,7 +18,7 @@ from pathlib import Path
 
 BASE = Path("/opt/opstether/deploy/skill-autoupdate")
 REPO = BASE / "repo"
-PUBLIC = Path("/opt/nl-gateway/certbot/www/opstether-skills")
+PUBLIC = BASE / "public"
 STATE = BASE / "state.json"
 GIT = "https://github.com/ShuhLab/OpsTether.git"
 VERSION = re.compile(r"^\d+\.\d+\.\d+$")
