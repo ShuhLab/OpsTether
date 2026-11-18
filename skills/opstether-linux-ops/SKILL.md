@@ -1,6 +1,6 @@
 ---
 name: opstether-linux-ops
-version: 1.1.0
+version: 1.1.1
 tags: [linux, devops, claude, mcp, server-administration]
 description: Diagnose and administer Linux servers through a separately connected, OAuth-authenticated OpsTether MCP service. Use for server inventory, uptime, CPU, disk, logs, systemd, Docker, files and persistent terminal workflows on servers that the user owns or is authorized to manage.
 ---

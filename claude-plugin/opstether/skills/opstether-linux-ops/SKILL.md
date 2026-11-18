@@ -1,6 +1,6 @@
 ---
 name: opstether-linux-ops
-version: 1.1.0
+version: 1.1.1
 tags: [linux, devops, claude, mcp, server-administration]
 description: Diagnose and administer Linux servers through a separately connected, OAuth-authenticated OpsTether MCP service. Use for server inventory, uptime, CPU, disk, logs, systemd, Docker, files and persistent terminal workflows on servers that the user owns or is authorized to manage.
 ---
@@ -42,6 +42,10 @@ The Linux agent may have root privileges. Restrict operations to machines the us
 - `references/security.md`: production-change checklist and boundaries.
 - `mcp-config.example.json`: endpoint-only sample, not a complete OAuth login.
 - `mcp-config.claude-code.json`: preconfigured public Claude Code OAuth metadata (no secrets).
+
+## Updates and versioning
+
+This free skill is distributed through a versioned GitHub marketplace and through Agensi. For **Claude Code**, enable auto-update for the `shuhlab-ops` marketplace in `/plugin → Marketplaces` to receive published changes without reinstalling. On **Agensi**, users receive the newest version after its review and approval. The connected OpsTether MCP service is hosted and updated separately; installing this skill does not install or update a Linux agent. This text-only skill never downloads or executes a self-updater.
 
 Support: https://opstether.m2g.pro/support
 Docs: https://opstether.m2g.pro/docs
