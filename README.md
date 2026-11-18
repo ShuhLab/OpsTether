@@ -37,7 +37,7 @@ Claude Code plugin catalog: `claude plugin marketplace add ShuhLab/OpsTether`, t
 
 OpsTether now publishes a **free Agent Skill for Claude Code** with safe Linux diagnostics, server selection, systemd, Docker and persistent terminal workflows.
 
-- [Get the free ZIP](https://opstether.m2g.pro/downloads/opstether-linux-ops-1.0.1.zip) or [view SKILL.md](skills/opstether-linux-ops/SKILL.md).
+- [Get the free ZIP](https://opstether.m2g.pro/downloads/opstether-linux-ops-latest.zip) or [view SKILL.md](skills/opstether-linux-ops/SKILL.md).
 - [Claude Code and Claude connection guide](docs/CLAUDE.md).
 - The skill runs instructions in the AI client; it **does not host the MCP server or grant an OpsTether account**. The user must connect the separate OpsTether service with OAuth.
 - **Status:** free skill and Claude Code plugin published; Claude-specific public OAuth client registered and server-side PKCE/token flow tested (2026-11-16). Interactive login through Claude apps is **not yet independently verified**. Do not treat this as guaranteed connector support on every Claude plan or client.
@@ -54,6 +54,12 @@ npx skills add ShuhLab/OpsTether --skill opstether-linux-ops --agent claude-code
 Installing a skill does **not** connect the hosted MCP server. Sign into OpsTether separately through OAuth as explained in the [Claude setup guide](docs/CLAUDE.md). The installer can also discover the independent `opstether-linux-operations` entry; select `--skill opstether-linux-ops` for this package.
 
 **Agensi:** [Submission details and checklist](docs/AGENSI_LISTING.md). The free listing has been submitted and is **pending admin review**, not yet live.
+
+### Updates without reinstalling
+
+**OpsTether auto-update is available:** the canonical skill is automatically versioned and packaged in GitHub Actions, and the [latest standalone ZIP](https://opstether.m2g.pro/downloads/opstether-linux-ops-latest.zip) and [Agensi-format ZIP](https://opstether.m2g.pro/downloads/opstether-linux-ops-agensi-latest.zip) are refreshed from GitHub every 15 minutes with checksum validation. [Current release manifest](https://opstether.m2g.pro/downloads/opstether-skill-latest.json).
+
+Claude Code users install `opstether@shuhlab-ops` once, then enable auto-update for **shuhlab-ops** in `/plugin → Marketplaces`. Agensi users automatically receive the newest approved live skill, while we submit each creator update to the same listing for review. The hosted MCP server is updated independently. **[Update setup, limitations and rollback](docs/AUTO_UPDATE.md).**
 
 ## Connect ChatGPT
 
