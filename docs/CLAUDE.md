@@ -8,12 +8,14 @@ OpsTether is a **separate hosted Linux administration MCP service**, not hosted 
 - Dashboard/account: https://opstether.m2g.pro/dashboard
 - Remote MCP: `https://opstether.m2g.pro/mcp`
 - Free Agent Skill: [SKILL.md](../skills/opstether-linux-ops/SKILL.md)
-- Download: [OpsTether Linux Ops skill ZIP v1.1.0](https://opstether.m2g.pro/downloads/opstether-linux-ops-1.1.0.zip)
+- Download: [latest OpsTether Linux Ops skill ZIP](https://opstether.m2g.pro/downloads/opstether-linux-ops-latest.zip)
 - Full skill connection guide: [references/connect.md](../skills/opstether-linux-ops/references/connect.md)
 
 ## Claude Plugins: skill installation verified (17 November 2026)
 
 The Shuh Lab GitHub marketplace was added successfully through **Claude → Plugins → Add → Add marketplace → Add from a repository**, using `ShuhLab/OpsTether`. Claude displayed the **Opstether** plugin, version **1.1.0**, and confirmed **“Opstether is added and ready to use.”** This verification applies to the text-only `opstether-linux-ops` skill. The plugin correctly shows **“This plugin doesn’t include any connectors”**: installing it does **not** create the separate OAuth MCP connection, and it does not grant Linux server access. The tested Claude account did not offer an enabled **Add custom connector** action; end-to-end Claude MCP authentication therefore remains unverified in that account.
+
+**Automatic updates:** after one installation of `opstether@shuhlab-ops`, enable **Enable auto-update** for the `shuhlab-ops` marketplace in Claude Code `/plugin → Marketplaces`. For Claude.ai, GitHub App access and **Sync automatically** must be enabled on the user's marketplace. See [verified auto-update instructions](AUTO_UPDATE.md); publisher settings cannot force auto-update on users.
 
 ## 1. Pair the user's Linux server
 
