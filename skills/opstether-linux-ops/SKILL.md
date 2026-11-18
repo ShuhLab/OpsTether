@@ -43,6 +43,10 @@ The Linux agent may have root privileges. Restrict operations to machines the us
 - `mcp-config.example.json`: endpoint-only sample, not a complete OAuth login.
 - `mcp-config.claude-code.json`: preconfigured public Claude Code OAuth metadata (no secrets).
 
+## Updates and versioning
+
+This free skill is distributed through a versioned GitHub marketplace and through Agensi. For **Claude Code**, enable auto-update for the `shuhlab-ops` marketplace in `/plugin → Marketplaces` to receive published changes without reinstalling. On **Agensi**, users receive the newest version after its review and approval. The connected OpsTether MCP service is hosted and updated separately; installing this skill does not install or update a Linux agent. This text-only skill never downloads or executes a self-updater.
+
 Support: https://opstether.m2g.pro/support
 Docs: https://opstether.m2g.pro/docs
 Source of this free skill: https://github.com/ShuhLab/OpsTether/tree/main/skills/opstether-linux-ops
