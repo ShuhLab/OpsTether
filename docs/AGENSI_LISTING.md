@@ -2,6 +2,8 @@
 
 > Agensi submission confirmed 17 November 2026; status **Pending Review**, not approved or publicly live. No final safety-scan result was displayed at submission.
 > Current ZIP: https://opstether.m2g.pro/downloads/opstether-linux-ops-agensi-1.1.0.zip
+> Latest **prepared** Agensi ZIP (may be newer than the reviewed version): https://opstether.m2g.pro/downloads/opstether-linux-ops-agensi-latest.zip
+> Agensi buyers automatically load the latest **approved** version; the creator submits higher-version ZIP updates to this same listing, subject to review. See [auto-update workflow](AUTO_UPDATE.md).
 > Version: 1.1.0 · Agensi ZIP layout: one top-level `opstether-linux-ops/` folder containing one SKILL.md plus six text-only support files · Price: **Free**
 
 ## Listing fields
