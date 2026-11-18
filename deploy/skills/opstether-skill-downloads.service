@@ -1,0 +1,25 @@
+[Unit]
+Description=Publish vetted OpsTether skill ZIP downloads from GitHub
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=opstether-skill-update
+Group=opstether-skill-update
+WorkingDirectory=/opt/opstether/deploy/skill-autoupdate
+ExecStart=/usr/bin/python3 /opt/opstether/deploy/skill-autoupdate/publish_latest.py
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictNamespaces=true
+RestrictSUIDSGID=true
+ReadWritePaths=/opt/opstether/deploy/skill-autoupdate /opt/nl-gateway/certbot/www/opstether-skills
+MemoryMax=512M
+CPUQuota=60%
+TimeoutStartSec=180
