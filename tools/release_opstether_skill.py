@@ -22,7 +22,7 @@ PLUGIN = ROOT / "claude-plugin" / "opstether" / "skills" / "opstether-linux-ops"
 PROJECT = ROOT / ".claude" / "skills" / "opstether-linux-ops"
 MANIFEST = ROOT / "claude-plugin" / "opstether" / ".claude-plugin" / "plugin.json"
 VERSION = re.compile(r"^\d+\.\d+\.\d+$")
-SKILL_VERSION = re.compile(r"(?m)^(version:\s*)(\d+\.\d+\.\d+)\s*$")
+SKILL_VERSION = re.compile(r"(?m)^(version:[ \t]*)(\d+\.\d+\.\d+)[ \t]*$")
 SECRET = re.compile(rb"(?i)(-----BEGIN (?:RSA|EC|OPENSSH|DSA) PRIVATE KEY-----|sk-proj-[A-Za-z0-9_-]{15,}|KC_BOOTSTRAP_ADMIN_PASSWORD\s*=)")
 MAX_TEXT_BYTES = 256_000
 ZIP_DATE = (2020, 1, 1, 0, 0, 0)
